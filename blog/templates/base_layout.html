@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" type ='text/css'>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" type ='text/css'>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1><a href="{% url 'articles:list' %}" ></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+            {% block content %}
+            {% endblock %}
+
+    </body>
+</html>
