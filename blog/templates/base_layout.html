@@ -11,9 +11,10 @@
     </head>
     <body>
         <div class="wrapper">
-            <h1><a href="{% url 'articles:list' %}" ></h1>
+            <h1><a href="{% url 'articles:list' %}" >Strona domowa </h1>
             <nav>
                 <ul>
+                    {% if user.is_authenticated %}
                     <li>
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
@@ -21,6 +22,11 @@
 
                         </form>
                     </li>
+                    <li> <a href="{% url 'articles:create' %}" >New article</a> </li>
+                    {% else %}
+                        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                        <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

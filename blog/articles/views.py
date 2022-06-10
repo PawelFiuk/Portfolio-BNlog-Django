@@ -4,11 +4,12 @@ from django.contrib.auth.decorators import login_required
 from . import forms
 
 
+
 # Create your views here.
 
 def articles_list(request):
     articles = Article.objects.all().order_by('date')
-    return render(request, "articles/articles_list.html", { 'articles': articles})
+    return render(request, "articles/articles_list.html", {'articles': articles})
 
 
 def article_details(request, slug):
@@ -19,10 +20,10 @@ def article_details(request, slug):
 @login_required(login_url="/accounts/login/")
 def create_article(request):
     if request.method == 'POST':
-        form = forms.CreateArticle(request.POST)
+        form = forms.CreateArticle(request.POST, request.FILES)
         if form.is_valid():  # zapisz artykuł do db jeżeli wszystko jest ok
+            form.save()
             return redirect('articles:list')
     else:
         form = forms.CreateArticle()
     return render(request, 'articles/article_create.html', {'form': form})
-
