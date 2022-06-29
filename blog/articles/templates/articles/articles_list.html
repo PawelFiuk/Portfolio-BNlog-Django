@@ -8,7 +8,7 @@
                     <h2><a href="{% url 'articles:detail' article.slug %}"> {{ article.title }}</a> </h2>
                     <p> {{article.date }}</p>
                     <p> {{article.snippet }}</p>
-
+                    <p> {{article.author }}</p>
                 </div>
             {% endfor %}
         </div>

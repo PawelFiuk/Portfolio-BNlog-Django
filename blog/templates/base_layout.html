@@ -1,14 +1,18 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" type ='text/css'>
+        <title>PythonDev.com</title>
+        <meta name="keywords" content="blog, programmming, python developer, django framework, web developer, IT"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="This is a blog about programming in Python language">
         <link rel="stylesheet" href="{% static 'styles.css' %}">
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet" type ='text/css'>
-
     </head>
+
     <body>
         <div class="wrapper">
             <h1><a href="{% url 'articles:list' %}" >Strona domowa </h1>
@@ -19,7 +23,6 @@
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
-
                         </form>
                     </li>
                     <li> <a href="{% url 'articles:create' %}" >New article</a> </li>
@@ -31,6 +34,7 @@
             </nav>
         </div>
             {% block content %}
+
             {% endblock %}
 
     </body>

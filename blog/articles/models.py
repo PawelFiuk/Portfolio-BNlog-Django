@@ -16,4 +16,4 @@ class Article(models.Model):
         return self.title
 
     def snippet(self):
-        return self.body[:120] + "...  Zobacz dalszą część artykułu!"
+        return self.body[:120] + "     Zobacz dalszą część artykułu!"
