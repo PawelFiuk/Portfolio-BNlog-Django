@@ -11,12 +11,14 @@ body *{
 
 h1,h2,h3,h4,h5{
     font-weight: normal;
-    margin: 0;
+    margin-left: 0;
     color: white;
+
 }
 
 a, a:hover, a:visited{
     text-decoration: none;
+    color: white;
 }
 
 .wrapper{
@@ -61,4 +63,8 @@ nav button{
     cursor: pointer;
     border: 0;
     font-size: 1em;
+}
+
+div.wrapper h1{
+    text-align: center;
 }
