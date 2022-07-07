@@ -34,7 +34,7 @@ a, a:hover, a:visited{
 
 .article{
     padding: 10px;
-    border: solid;
+    border: 1px solid #00dba0;
 }
 
 .site-form{
@@ -47,4 +47,18 @@ a, a:hover, a:visited{
     display: block;
     margin: 20px 0 0 0;
     padding: 10px;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 20px;
+    color: white;
+}
+
+nav button{
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    font-size: 1em;
 }
