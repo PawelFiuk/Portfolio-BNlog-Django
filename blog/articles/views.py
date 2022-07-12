@@ -2,12 +2,12 @@ from django.shortcuts import render, redirect
 from .models import Article
 from django.contrib.auth.decorators import login_required
 from . import forms
-
-# Create your views here.
+from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 
 def articles_list(request):
-    articles = Article.objects.all().order_by('date')
+    articles = Article.objects.all().order_by('-date')
     return render(request, "articles/articles_list.html", {'articles': articles})
 
 
@@ -26,3 +26,10 @@ def create_article(request):
     else:
         form = forms.CreateArticle()
     return render(request, 'articles/article_create.html', {'form': form})
+
+
+class ArticleUpdate(UpdateView):
+    model = Article
+    fields = '__all__'
+    success_url = reverse_lazy('articles_list')
+
