@@ -15,7 +15,8 @@
 
     <body>
         <div class="wrapper">
-            <h1><a href="{% url 'articles:list' %}" >Strona domowa </h1>
+            <div class="menu">
+            <h1><a href="{% url 'articles:list' %}" >PYTHONDEV BLOG</a></h1>
             <nav>
                 <ul>
                     {% if user.is_authenticated %}
@@ -32,7 +33,7 @@
                     {% endif %}
                 </ul>
             </nav>
-
+            </div>
             {% block content %}
 
             {% endblock %}

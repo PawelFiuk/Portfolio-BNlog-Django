@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 
 
 class Article(models.Model):
+    author = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     #thumb = models.ImageField(default='default.png', blank=True)
-    author = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

@@ -22,6 +22,7 @@ a, a:hover, a:visited{
 }
 
 .wrapper{
+    background-color: #0f121f;
     max-width: 90%;
     margin: 0 auto;
 }
@@ -36,7 +37,7 @@ a, a:hover, a:visited{
 
 .article{
     padding: 10px;
-    border: 1px solid #00dba0;
+    border: 3px solid #00dba0;
 }
 
 .site-form{
@@ -51,14 +52,11 @@ a, a:hover, a:visited{
     padding: 10px;
 }
 
-
-nav{
-
-}
 nav li{
     display: inline-block;
     margin-left: 20px;
     color: white;
+
 }
 
 nav button{
@@ -71,4 +69,13 @@ nav button{
 
 div.wrapper h1{
     text-align: center;
+}
+
+.menu{
+    background-color: #666699;
+    padding: 10px;
+}
+
+.title{
+    font-size: 50px;
 }

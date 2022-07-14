@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from . import forms
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def articles_list(request):
@@ -28,8 +29,14 @@ def create_article(request):
     return render(request, 'articles/article_create.html', {'form': form})
 
 
-class ArticleUpdate(UpdateView):
+class ArticleUpdate(LoginRequiredMixin, UpdateView):
     model = Article
-    fields = '__all__'
-    success_url = reverse_lazy('articles_list')
+    template_name = 'articles/article_update.html'
+    fields = ['title', 'slug', 'body']
+    success_url = reverse_lazy('articles:list')
 
+
+class ArticleDelete(LoginRequiredMixin, DeleteView):
+    model = Article
+    context_object_name = 'article'
+    success_url = reverse_lazy('articles:list')
