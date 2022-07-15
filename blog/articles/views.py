@@ -20,9 +20,11 @@ def article_details(request, slug):
 @login_required(login_url="/accounts/login/")
 def create_article(request):
     if request.method == 'POST':
-        form = forms.CreateArticle(request.POST, request.FILES)
+        form = forms.CreateArticle(request.POST, request.FILES) # tworzymy formularz nowego artykulu
         if form.is_valid():  # zapisz artykuł do db jeżeli wszystko jest ok
-            form.save()
+            instance = form.save(commit=False)
+            instance.author = request.user
+            instance.save()
             return redirect('articles:list')
     else:
         form = forms.CreateArticle()
@@ -30,9 +32,9 @@ def create_article(request):
 
 
 class ArticleUpdate(LoginRequiredMixin, UpdateView):
-    model = Article
+    model = Article   # wybieramy model
     template_name = 'articles/article_update.html'
-    fields = ['title', 'slug', 'body']
+    fields = ['title', 'slug', 'body']  # wybieramy, co chcemy zmienic z modelu
     success_url = reverse_lazy('articles:list')
 
 

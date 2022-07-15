@@ -15,5 +15,6 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+    # Pierwsze 120 liter tekstu, który bedzie wyswietlony na głównej stronie
     def snippet(self):
         return self.body[:120] + "     Zobacz dalszą część artykułu!"
