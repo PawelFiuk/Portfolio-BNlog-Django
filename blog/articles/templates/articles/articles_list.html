@@ -9,7 +9,7 @@
                     <p> {{article.date }}</p>
                     <p> {{article.snippet }}</p>
                     <p> {{article.author }}</p>
-                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated and request.user == article.author %}
                         <a href="{% url 'articles:article_update' article.pk %}">Update</a>
                         <a href="{% url 'articles:article-delete' article.pk %}">Delete</a>
                     {% endif %}
